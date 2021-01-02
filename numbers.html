@@ -63,8 +63,8 @@
 
                 $.ajax({
                     type: 'POST',
-                    url: 'https://wslgssmmh3.execute-api.us-east-1.amazonaws.com/prod/testget',
-                    data: JSON.stringify({"first_num": $("#first_num").val(), "second_num": $("#second_num").val(), "operator":"add"}),
+                    url: `https://wslgssmmh3.execute-api.us-east-1.amazonaws.com/prod/testget?first_num=${first_num}&second_num=${second_num}&operator=add`,
+                    //data: JSON.stringify({"first_num": $("#first_num").val(), "second_num": $("#second_num").val(), "operator":"add"}),
                     contentType: "application/json",
 
                     success: function(data){
