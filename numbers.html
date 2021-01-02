@@ -39,7 +39,7 @@
     <div class="row">
       <div class="col-lg-12">
 
-          <form method="GET">
+          <form method="POST">
 
             <div class="form-group col-md-6">
 
@@ -62,9 +62,9 @@
             $("#submit").on('click', function(){
 
                 $.ajax({
-                    type: 'GET',
-                    url: `https://wslgssmmh3.execute-api.us-east-1.amazonaws.com/prod/testget?first_num=${first_num}&second_num=${second_num}&operator=add`,
-                    //data: JSON.stringify({"first_num": $("#first_num").val(), "second_num": $("#second_num").val(), "operator":"add"}),
+                    type: 'POST',
+                    url: `https://wslgssmmh3.execute-api.us-east-1.amazonaws.com/prod/testget?`,
+                    body: JSON.stringify({"first_num": $("#first_num").val(), "second_num": $("#second_num").val(), "operator":"add"}),
                     contentType: "application/json",
 
                     success: function(data){
