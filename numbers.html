@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstrap.min.css.map">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300&display=swap" rel="stylesheet">
   <script src="js/vendor/mornizr.js"></script>
 
@@ -38,7 +39,7 @@
     <div class="row">
       <div class="col-lg-12">
 
-          <form method="POST" action="https://wslgssmmh3.execute-api.us-east-1.amazonaws.com/prod/testget">
+          <form method="POST">
 
             <div class="form-group col-md-6">
 
@@ -52,9 +53,26 @@
               <input type="number" class="form-control" id="second_num">
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button id="submit" type="submit" class="btn btn-primary">Submit</button>
 
           </form>
+
+          <script>
+
+            $("#submit").on('click', function(){
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'https://wslgssmmh3.execute-api.us-east-1.amazonaws.com/prod/testget',
+                    data: JSON.stringify({"first_num": $("#first_num").val(), "second_num": $("#second_num").val(), "operator":"add"}),
+                    contentType: "application/json"
+
+                    
+                })
+
+            })
+
+          </script>
 
         </div>
       </div>
